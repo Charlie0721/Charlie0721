@@ -104,18 +104,18 @@ export default defineComponent({
       }
 
       if (algorithmType === "SELECTION_SORT") {
-
-        let aux: number[] = [...this.arrayData]
+        let aux: number[] = [...this.arrayData];
         for (let i = 1; i < this.arrayData.length; i++) {
-            let min=aux.slice(i+1).reduce((a,e,j)=>(e < aux[a]?j+i+1:a),i);
-          if(min !=i){
+          let min = aux
+            .slice(i + 1)
+            .reduce((a, e, j) => (e < aux[a] ? j + i + 1 : a), i);
+          if (min != i) {
             [aux[i], aux[min]] = [aux[min], aux[i]];
           }
-        }console.log("aux"+ aux + "arrayData"+ this.arrayData);
-        this.arrayData=aux;
-        return this.arrayData;
+        }
+        console.log("aux" + aux + "arrayData" + this.arrayData);
       }
-
+      return this.arrayData;
     },
     addNumbers() {
       this.arrayData.push(this.number);
